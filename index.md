@@ -3,7 +3,7 @@ layout: home
 title: home
 ---
 
-{% include header.html %}
+{% include navbar.html %}
 
 # Index Page
 * Welcome
