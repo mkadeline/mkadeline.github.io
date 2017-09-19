@@ -1,4 +1,10 @@
-In exploring object creation, at some point in modern programming, we need to turn to dependency injection. The separation of concerns principle and ensuring our objects are modular means at times we can have a ridiculous number of objects, each doing one thing. While that makes testing, maintenance and upgrading much easier, it can make following your object's dependencies more difficult.
+---
+layout: post
+title: "Dagger 2 Android Dependency Injection"
+date: 2017-09-20
+---
+
+n exploring object creation, at some point in modern programming, we need to turn to dependency injection. The separation of concerns principle and ensuring our objects are modular means at times we can have a ridiculous number of objects, each doing one thing. While that makes testing, maintenance and upgrading much easier, it can make following your object's dependencies more difficult.
 
 At times however, including when exploring dagger 2 with its three pronged approach to dependency injection, I have questioned whether the additional code and structure is actually easier than simply instantiating objects or using boilerplate dependency injection. What follows is an attempt to understand how Dagger 2 would operate in a smaller project and how that then scales in a bigger project.
 
