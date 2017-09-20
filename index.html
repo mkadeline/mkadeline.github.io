@@ -3,12 +3,12 @@ layout: default
 title: Home
 ---
 	<div class="title-container">
-		<h1>Recent Posts</h1>
+		<h1>Recent</h1>
 	</div>
 	<div class="container post-list">
-		<div class="card-deck">
+		<div class="row">
 			{% for post in site.posts %}
-				<div class="col-sm-4">
+				<div class="col-lg-4 col-sm-6 col-xs-12">
 					<div class="card card-outline-danger mb-3 card-image">
 						<img class="card-img-top" src="/assets/images/{{ post.imageid }}.jpg" alt="post image">
 						<div class="card-block">
