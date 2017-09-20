@@ -1,9 +1,11 @@
 a {
   color:#930000;
+  border-bottom: 1px solid transparent;
+  transition: .2s ease-in-out, text-decoration .2s ease-in-out;
 }
 a:hover, a:focus {
   color: #414141;
-  font-size:26px;
+  border-color: #414141
 }
 
 body {
@@ -11,7 +13,16 @@ body {
 }
 
 .post-title-list {
+  font-weight: bold;
   font-size: 24px;
+}
+.title-container {
+  padding-bottom:15px;
+}
+
+.card-img-top {
+  overflow:hidden;
+  height: 250px;
 }
 
 .navbar {
@@ -19,6 +30,9 @@ body {
   /* border: none; */
   transition: top 1s ease;
   color:#930000;
+}
+.navbar ul li {
+  font-size:18px;
 }
 .navbar a {
   color:#930000;
@@ -55,6 +69,6 @@ body {
 }
 
 .layout-content {
-  padding-top:10%;
+  padding-top:5%;
   padding-bottom:15px;
 }

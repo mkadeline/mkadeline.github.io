@@ -2,10 +2,21 @@
 layout: default
 title: Hardware Posts
 ---
-	<h1>{{ page.title }}</h1>
-	<ul class="posts">
-
-      {% for post in site.categories.hardware %}
-	        <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-      {% endfor %}
-	</ul>
+    <div class="title-container">
+        <h1>{{ page.title }}</h1>
+	</div>
+    <div class="container post-list">
+            <div class="card-deck">
+                {% for post in site.categories.hardware %}
+                    <div class="col-sm-4">
+                        <div class="card card-outline-danger mb-3 card-image">
+                            <img class="card-img-top" src="/assets/images/{{ post.imageid }}.jpg" alt="post image">
+                            <div class="card-block">
+                                <span class="post-title-list"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span>
+                                <span class="post-excerpt">{{ post.excerpt }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
