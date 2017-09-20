@@ -89,11 +89,11 @@ body {
 .front {
   z-index:2;
 }
-/* @media (max-width: 768px) {
-  .container {
+@media (max-width: 768px) {
+  #about .container-fluid {
     min-height:900px;
   }
-} */
+}
 
 .card-container, .front, .back {
   width:100%;
