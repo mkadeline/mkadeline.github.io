@@ -37,8 +37,9 @@ body {
 .navbar-toggler {
   margin:5px;
 }
-.navbar ul li {
+.navbar #left-nav-ul{
   font-size:18px;
+  flex-direction: row;
 }
 #override .navbar a, navbar a:active {
   color:#930000;
