@@ -2,3 +2,4 @@ name: Matthew Adeline, Personal Blog
 markdown: kramdown
 plugins:
   - jekyll-sitemap
+permalink: /:categories/:month/:day/:title/
