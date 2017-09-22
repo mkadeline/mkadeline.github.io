@@ -52,7 +52,6 @@ Firstly, we introduce an AppComponent, to allow for easier inheritence if we wer
 public interface AppComponent {
 
     TimerComponent plus(TimerModule module);
-    WorkoutComponent plus(WorkoutModule module);
 
 }
 ```
@@ -69,13 +68,14 @@ public interface TimerComponent {
 
 }
 ```
-Our MainActivity will not need access to the Athlete or Records objects and so the TimerComponent can inject the Timer directly. However, other activities require the WorkoutModule and so that will need to be injerited further down the line, in our WorkoutComponent:
+Our MainActivity will not need access to the Athlete or Records objects and so the TimerComponent can inject the Timer directly. However, other activities require the WorkoutModule and so that will need to be injerited further down the line, in our WorkoutComponent, which now also has access to the Timer:
 ```java
 @Workout
 @Subcomponent(modules = {WorkoutModule.class})
 public interface WorkoutComponent {
 
     ActiveSessionActivity inject(ActiveSessionActivity activeSessionActivity);
+    SummaryActivity inject(SummaryActivity summaryActivity);
 
 }
 ```
@@ -106,3 +106,59 @@ public class AthleteActivity extends Activity {
         startActivity(intent);
     }
 }
+```
+Finally, the MyApp that extends Application:
+```java
+public class MyApp extends Application {
+
+    private AppComponent appComponent;
+    private TimerComponent timerComponent;
+    private WorkoutComponent workoutComponent;
+
+    public static MyApp get(Context context) {
+        return (MyApp) context.getApplicationContext();
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        createAppComponent();
+    }
+
+    public void createAppComponent() {
+        appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build();
+    }
+
+    public TimerComponent createTimerComponent() {
+        // This is where the component is instantiated
+        // So it will only be instantiated once as Application is only instantiated once
+        timerComponent = appComponent.plus(new TimerModule());
+        return timerComponent;
+    }
+
+    public TimerComponent getTimerComponent() {
+        return timerComponent;
+    }
+
+    public void releaseWorkoutComponent() { workoutComponent = null; }
+
+    public WorkoutComponent createWorkoutComponent(String name) {
+        workoutComponent = timerComponent.plus(new WorkoutModule(name));
+        return workoutComponent;
+    }
+
+    public WorkoutComponent getWorkoutComponent() {
+        return workoutComponent;
+    }
+}
+```
+For ease of use we will create the WorkoutComponent in MyApp, however it requires the TimerComponent for its construction. We have therefore designed our WorkoutComponent in such a way as it cannot exist without the TimerComponent. If for example, we set AthleteActivity as the launch point, and attempt to create a WorkoutComponent without a TimerComponent, we get the expected NullPointerException as the JVM complains we're attempting to access the plus() method on a null TimerComponent.
+This is obviously a design flaw in our particular implementation but it shows the degree of control Dagger 2 still requires.
+
+Another interesting point is whether or not we'd need to control the lifecycle of the Component. By controlling the scope we're allowing for local singletons, for as long as the component lives. In some examples I've seen, these temporary components are explicitly dereferenced by
+```java
+XXXComponent = null;
+```
+however given we ensure the source of our WorkoutComponent is MyApp, by calling getWorkoutComponent() we will always get the latest workoutComponent instance that was returned by createWorkoutComponent(). The old WorkoutComponent is dereferenced and the scope, its objects and Modules die with it.

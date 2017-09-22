@@ -141,7 +141,7 @@ public class MyApp extends Application {
     }
 }
 ```
-The MyApp, which we've now set as the launch point of the application, extending from Application, will build the TimerComponent, using the AppModule and TimerModule classes, and then inject the Timer class wherever it is needed.
+The MyApp class, which we've now set as the launch point of the application, extending from Application, will build the TimerComponent, using the AppModule and TimerModule classes, and then inject the Timer class wherever it is needed.
 
 So from one model class and two activities, we've blown out to four classes, two activities and an interface.
 
