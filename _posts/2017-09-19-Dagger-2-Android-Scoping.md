@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Dagger 2 Android - Scoping
+date: 2017-09-22
+category: programming
 ---
+
 In my last article I got around a basic use of Dagger 2 to implement a true singleton. Now I'd like to expand that and take advantage of Dagger 2's inheritance property and Scoping.
 
 Again the premise is an interval Timer App with a global Timer instantiated once and used everywhere. However this time, we'll introduce an Athlete that, on every session will do some pushups or situps, which are added to their own PushupRecord and SitupRecord objects. The objects will only live as long as the session. Each new session will bring about a new Athlete and set of records however we need to ensure the objects are 'singletons' during the workout and on any activities they are required before destruction.
