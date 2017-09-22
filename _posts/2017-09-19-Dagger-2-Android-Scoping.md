@@ -11,6 +11,8 @@ Again the premise is an interval Timer App with a global Timer instantiated once
 
 Starting from the bottom, we define a new Module to provide the dependencies:
 
+<script src="https://gist.github.com/mkadeline/4a4d3a9cc383d8602e123f6fd5cd4232.js"></script>
+
 ```java
 @Module
 public class WorkoutModule {
