@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Dagger 2 Android Dependency Injection"
+title: "Dagger 2 Android Introduction"
 date: 2017-09-20
 category: programming
 ---
 
-n exploring object creation, at some point in modern programming, we need to turn to dependency injection. The separation of concerns principle and ensuring our objects are modular means at times we can have a ridiculous number of objects, each doing one thing. While that makes testing, maintenance and upgrading much easier, it can make following your object's dependencies more difficult.
+In exploring object creation, at some point in modern programming, we need to turn to dependency injection. The separation of concerns principle and ensuring our objects are modular means at times we can have a ridiculous number of objects, each doing one thing. While that makes testing, maintenance and upgrading much easier, it can make following your object's dependencies more difficult.
 
 At times however, including when exploring dagger 2 with its three pronged approach to dependency injection, I have questioned whether the additional code and structure is actually easier than simply instantiating objects or using boilerplate dependency injection. What follows is an attempt to understand how Dagger 2 would operate in a smaller project and how that then scales in a bigger project.
 
@@ -32,70 +32,21 @@ Using the MainActivity to set up the app session details:
 ```java
 public class MainActivity extends Activity {
 
-private int sets;
-private int timeOn;
-private int timeOff;
-private int minutes;
-private int secs;
-TextView setsView = findViewById(R.id.sets_view);
-TextView workView = findViewById(R.id.time_on_view);
-TextView restView = findViewById(R.id.time_off_view);
+    private int sets;
+    private int timeOn;
+    private int timeOff;
+    private int minutes;
+    private int secs;
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-super.onCreate(savedInstanceState);
-setContentView(R.layout.activity_main);
-}
+    // Timer Setup Methods
 
-public void incrementSets(View view) {
-sets++;
-setsView.setText(sets);
-}
-
-public void decrementSets(View view) {
-if (sets > 0) sets--;
-setsView.setText(sets);
-}
-
-public void incrementTimeOn(View view) {
-timeOn++;
-minutes = timeOn/60;
-secs = timeOn%60;
-String time = String.format("%02d:%02d", minutes, secs);
-workView.setText(time);
-}
-
-public void decrementTimeOn(View view) {
-if (timeOn > 0) timeOn--;
-minutes = timeOn/60;
-secs = timeOn%60;
-String time = String.format("%02d:%02d", minutes, secs);
-workView.setText(time);
-}
-
-public void incrementTimeOff(View view) {
-timeOff++;
-minutes = timeOff/60;
-secs = timeOff % 60;
-String time = String.format("%02d:%02d", minutes, secs);
-restView.setText(time);
-}
-
-public void decrementTimeOff(View view) {
-if (timeOff > 0) timeOff--;
-minutes = timeOff/60;
-secs = timeOff % 60;
-String time = String.format("%02d:%02d", minutes, secs);
-restView.setText(time);
-}
-
-public void onStart(View view) {
-Intent intent = new Intent(this, ActiveSessionActivity.class);
-intent.putExtra("sets", sets);
-intent.putExtra("timeOn", timeOn);
-intent.putExtra("timeOff", timeOff);
-startActivity(intent);
-}
+    public void onStart(View view) {
+        Intent intent = new Intent(this, ActiveSessionActivity.class);
+        intent.putExtra("sets", sets);
+        intent.putExtra("timeOn", timeOn);
+        intent.putExtra("timeOff", timeOff);
+        startActivity(intent);
+    }
 }
 ```
 Then we instantiate our ActiveSessionActivity class that will contain the timers, and relies on an instance of timer.
@@ -103,96 +54,27 @@ Then we instantiate our ActiveSessionActivity class that will contain the timers
 ```Java
 public class ActiveSessionActivity extends Activity {
 
-private final Timer timer = new Timer();
-int seconds;
-final TextView titleView = findViewById(R.id.get_ready);
-final TextView timeView = findViewById(R.id.countdown_time_view);
+    private final Timer timer = new Timer();
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-super.onCreate(savedInstanceState);
-setContentView(R.layout.activity_active_session);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_active_session);
 
-// set up object information
-Intent intent = getIntent();
-seconds = timer.preCountdown;
-timer.countdown = true;
-timer.paused = false;
-timer.sets = intent.getIntExtra("sets", 0);
-timer.timeOn = intent.getIntExtra("timeOn", 0);
-timer.timeOff = intent.getIntExtra("timeOff", 0);
+        // Timer Setup Methods
+        // ...
 
-// set up the activity
-int minutes = seconds/60;
-int secs = seconds%60;
-String time = String.format("%02d:%02d", minutes, secs);
-timeView.setText(time);
-titleView.setText("Get Ready!");
-runTimer();
-}
+        runTimer();
+    }
 
-public void runTimer() {
-final Handler handler = new Handler();
-handler.postDelayed(new Runnable() {
-@Override
-public void run() {
-if (!timer.paused) {
-seconds--;
-}
-if (seconds == 0) {
-timerFinish();
-}
-int minutes = seconds/60;
-int secs = seconds%60;
-String time = String.format("%02d:%02d", minutes, secs);
-timeView.setText(time);
-handler.postDelayed(this, 1000);
-}
-}, 1000);
-}
+    public void runTimer() {
+        // Timer Runnable implementation
+    }
 
-public void timerFinish() {
-timer.sets--;
-if (timer.countdown) {
-timer.countdown = false;
-seconds = timer.timeOn;
-timer.work = true;
-titleView.setText("Work!");
-} else if (timer.work) {
-timer.work = false;
-seconds = timer.timeOff;
-timer.rest = true;
-titleView.setText("Rest!");
-} else if (timer.rest) {
-timer.rest = false;
-if (timer.sets == 0) {
-sessionFinish();
-} else {
-seconds = timer.timeOn;
-timer.work = true;
-titleView.setText("Work!");
-}
-}
-}
-
-public void sessionFinish() {
-timer.paused = true;
-timer.resetSession();
-Intent intent = new Intent(this, MainActivity.class);
-startActivity(intent);
-}
-
-public void onSessionPause(View view) {
-timer.paused = true;
-}
-
-public void onSessionResume(View view) {
-timer.paused = false;
-}
 }
 ```
-Ignoring the inaccurate timer this will produce or the cumbersome logic, we can see a new instance of the Timer object is created every time we finish a session. With such a simple app and a lightweight object, clearly not an issue, but I'll use it as an opportunity to explore singleton dependency injection in Dagger 2.
-If we assume we only ever want one Timer object to be created and to have the MainActivity simply update that object with new values after each session, which the ActiveSessionActivity will access.
+We can see a new instance of the Timer object is created every time we finish a session. With such a simple app and a lightweight object, clearly not an issue, but I'll use it as an opportunity to explore singleton dependency injection in Dagger 2.
+If we assume we only ever want one Timer object to be created, we'll have the MainActivity simply update that object with new values after each session, which the ActiveSessionActivity will access.
 The immediate issue is this object must be injected over the two activities. So, following [this talk by Jake Wharton](https://youtu.be/plK0zyRLIP8) and [this article](http://guides.codepath.com/android/Dependency-Injection-with-Dagger-2) we implement the following:
 
 Firstly, a TimerModule which will be responsible for the object creation:
@@ -200,22 +82,21 @@ Firstly, a TimerModule which will be responsible for the object creation:
 @Module
 public class TimerModule {
 
-@Provides
-@Singleton
-Timer provideTimer() {
-Timer timer = new Timer();
-return timer;
-}
+    @Provides
+    @Singleton
+    Timer provideTimer() {
+        Timer timer = new Timer();
+        return timer;
+    }
 }
 ```
-and a TimerComponent, that will perform the actual injection, using the instance provided by TimerModule.
+and a TimerComponent, that will perform the actual injection using field injection on the instance Android provides us.
 ```java
 @Singleton
 @Component(modules={AppModule.class, TimerModule.class})
 public interface TimerComponent {
-
-void inject(MainActivity mainactivity);
-void inject(ActiveSessionActivity activeSessionActivity);
+    void inject(MainActivity mainactivity);
+    void inject(ActiveSessionActivity activeSessionActivity);
 }
 ```
 Included in this TimerComponent is the AppModule class:
@@ -237,7 +118,7 @@ public class AppModule {
 
 }
 ```
-We need a singleton of Timer and to ensure a true singleton we need to ensure our scope is correct. By tying the TimerComponent to the AppModule, which is responsible for creating the Application class that starts the app, we've effectively created a global scope. While Dagger supports explicit Scope declarations (and indeed, any implementation requiring local or temporary singletons will require explicit scoping), this has created the global scope. Simply annotating our provideTimer() method with @Singleton would only ensure a Singleton for each instance of TimerComponent.
+We need a singleton of Timer and to ensure a true singleton we need to ensure our scope is correct. By tying the TimerComponent to the AppModule, which is tied to the Application class that starts the app, we've effectively created a global scope. While Dagger supports explicit Scope declarations (and indeed, any implementation requiring local or temporary singletons will require explicit scoping), this has created the global scope. Simply annotating our provideTimer() method with @Singleton would only ensure a Singleton for each instance of TimerComponent.
 The final piece of the puzzle is completed in the class MyApp:
 ```java
 public class MyApp extends Application {
@@ -248,7 +129,6 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // %Dagger_Component_Name%
         timerComponent = DaggerTimerComponent.builder()
                 // list of modules that are part of this component need to be created here too
                 .appModule(new AppModule(this))
@@ -266,4 +146,4 @@ The MyApp, which we've now set as the launch point of the application, extending
 So from one model class and two activities, we've blown out to four classes, two activities and an interface.
 
 Consider however the benefit this scoping and intelligent placement of components can bring if you needed several Timer components, each owned by a distinct area of the App. 
-I'll now consider a more appropriate example, requiring global, application lifetime Singletons, local Singletons over several activities and objects that die with their Activity.
+I'll now consider a more appropriate example, requiring global, application lifetime Singletons, and local Singletons over several activities and objects.
