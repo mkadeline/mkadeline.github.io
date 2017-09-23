@@ -23,8 +23,8 @@ body {
 .card-img-top {
   overflow:hidden;
   height: 250px;
+  max-width:100%;
 }
-
 .navbar {
   background-color:tansparent;
   transition: top 1s ease;
@@ -160,4 +160,12 @@ body {
   padding: 10px 0;
   text-align: center;
   text-decoration: underline;
+}
+.footer {
+  height:100px;
+  width:100%;
+}
+
+.postcard {
+  height: 490px;
 }
