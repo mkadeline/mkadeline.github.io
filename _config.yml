@@ -3,4 +3,3 @@ markdown: kramdown
 plugins:
   - jekyll-sitemap
 permalink: /:categories/:title/
-google_analytics: UA-72460858-4
