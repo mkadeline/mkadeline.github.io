@@ -8,15 +8,17 @@ title: Hardware Posts
 	<div class="container post-list">
 		<div class="row">
 			{% for post in site.categories.hardware %}
-				<div class="col-lg-4 col-sm-6 col-xs-12">
-					<div class="card card-outline-danger mb-3 card-image postcard">
-						<img class="card-img-top" src="/assets/images/{{ post.imageid }}.jpg" alt="post image">
-						<div class="card-block">
-							<span class="post-title-list"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span>
-							<span class="post-excerpt">{{ post.excerpt }}</span>
-						</div>
+			<div class="col-lg-4 col-sm-6 col-xs-12">
+				<div class="card card-outline-danger mb-3 card-image postcard">
+					<a href="{{ post.url }}">
+					<img class="card-img-top" src="/assets/images/{{ post.imageid }}" alt="post image">
+					</a>
+					<div class="card-block">
+						<span class="post-title-list"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span>
+						<span class="post-excerpt">{{ post.excerpt }}</span>
 					</div>
 				</div>
-			{% endfor %}
+			</div>
+		{% endfor %}
 		</div>
 	</div>
