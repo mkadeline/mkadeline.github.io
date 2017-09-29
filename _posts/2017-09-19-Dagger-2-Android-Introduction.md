@@ -11,8 +11,6 @@ In exploring object creation, at some point in modern programming, we need to tu
 
 At times however, including when exploring dagger 2 with its three pronged approach to dependency injection, I have questioned whether the additional code and structure is actually easier than simply instantiating objects or using boilerplate dependency injection. What follows is an attempt to understand how Dagger 2 would operate in a smaller project and how that then scales in a bigger project.
 
-I'd love some critique on the below and on my thought process.
-
 <!-- My first stop in investigating this was considering how 'expensive' object creation and destruction is. When I first considered dependency injection I imagined some new method of creating objects that was inherently more efficient than the 'new ObjectX()' method I'd been taught. Looking at the final injectors showed me that's not the case but I headed down the object creation rabbithole anyway.
 Is it expensive to create Java objects, in either time or memory resources? Memory resources would depend on the object itself, so to consider time, is it a slow task to create an object? My first thought would be not really. Assuming only internal objects, i.e. no external connections or sockets, simply setting aside space on the heap then filling it with data has not seemed like an expensive process when using assembly or C, and it feels as though the JVM would have been optimised to a stage where it would be equally as painless. Likewise, given Java is almost OOP incarnate, it seems counter-intuitive to have a language focus around an expensive process, without dealing with it in some way. -->
 
