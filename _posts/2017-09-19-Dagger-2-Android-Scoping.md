@@ -2,7 +2,8 @@
 layout: post
 title: Dagger 2 Android - Scoping
 date: 2017-09-22
-category: programming
+categories: programming android
+imageid: android.png
 ---
 
 In my last article I got around a basic use of Dagger 2 to implement a true singleton. Now I'd like to expand that and take advantage of Dagger 2's inheritance property and Scoping.
