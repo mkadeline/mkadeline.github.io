@@ -55,4 +55,4 @@ Another interesting point is whether or not we'd need to control the lifecycle o
 XXXComponent = null;
 ```
 
-however given we ensure the source of our WorkoutComponent is MyApp, by calling getWorkoutComponent() we will always get the latest workoutComponent instance that was returned by createWorkoutComponent(). The old WorkoutComponent is dereferenced and the scope, its objects and Modules die with it.
+however given we ensure the source of our WorkoutComponent is a MyApp field, by calling getWorkoutComponent() we will always get the latest workoutComponent instance that was returned by createWorkoutComponent(). The old WorkoutComponent is dereferenced and the scope, its objects and Modules die with it.
