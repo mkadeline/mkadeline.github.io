@@ -14,14 +14,17 @@
 		{% if jekyll.environment == 'production' %}
 			{% include analytics.html %}
 		{% endif %}
-    </head>
-	<body id="override">
-		<script>
+	</head>
+	
+	<script>
 			fbq('track','ViewContent',{
 				content_ids:contact,
 				content_type:contact
 				}); 
 		</script>
+
+	<body id="override">
+
 		<div id="app" class="container">
 				<nav class="navbar navbar-toggleable-md navbar-light">
 					<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
