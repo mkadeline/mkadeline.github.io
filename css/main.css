@@ -1,5 +1,5 @@
 #override a {
-  color:#930000;
+  color:#6B0000;
   /* border-bottom: 1px solid transparent;
   transition: .2s ease-in-out, text-decoration .2s ease-in-out; */
 }
@@ -28,7 +28,7 @@ body {
 .navbar {
   background-color:tansparent;
   transition: top 1s ease;
-  color:#930000;
+  color:#6B0000;
   margin:4px;
 }
 .navbar .navbar-right {
@@ -42,7 +42,7 @@ body {
   flex-direction: row;
 }
 #override .navbar a, navbar a:active {
-  color:#930000;
+  color:#6B0000;
   background-color: transparent;
   transition: border-bottom .2s ease-in, transform .2s ease-in-out;
 }
