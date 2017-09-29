@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        {% jekyll.environment == 'production' %}
+        {% if jekyll.environment == 'production' %}
 			{% include analytics.html %}
 		{% endif %}
 		<title>{{ page.title }}</title>
