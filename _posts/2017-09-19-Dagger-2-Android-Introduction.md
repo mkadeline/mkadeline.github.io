@@ -2,7 +2,7 @@
 layout: post
 title: "Dagger 2 Android Introduction"
 date: 2017-09-20
-categories: programming android
+category: Android
 excerpt_separator: <!--more-->
 imageid: android.png
 ---

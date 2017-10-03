@@ -1,13 +1,14 @@
 ---
 layout: default
-title: Programming Posts
+title: Android Posts
 ---
     <div class="title-container">
         <h1>{{ page.title }}</h1>
 	</div>
 	<div class="container post-list">
 		<div class="row">
-			{% for post in site.categories.programming %}
+			{% if site.categories.Android %}
+				{% for post in site.categories.Android %}
 				<div class="col-lg-4 col-sm-6 col-xs-12">
 					<div class="card card-outline-danger mb-3 card-image postcard">
 						<a href="{{ post.url }}">
@@ -19,6 +20,9 @@ title: Programming Posts
 						</div>
 					</div>
 				</div>
-			{% endfor %}
+				{% endfor %}
+			{% else %}
+				No Posts
+			{% endif %}
 		</div>
 	</div>

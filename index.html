@@ -15,7 +15,10 @@ title: Home
 						<img class="card-img-top" src="/assets/images/{{ post.imageid }}" alt="post image">
 						</a>
 						<div class="card-block">
-							<span class="post-title-list"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span>
+							<span class="post-title-list"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span><br>
+							{% for category in post.categories %}
+								<span class="post-excerpt"><a href="/{{ category }}">{{ category }}</a></span>
+							{% endfor %}
 							<span class="post-excerpt">{{ post.excerpt }}</span>
 						</div>
 					</div>

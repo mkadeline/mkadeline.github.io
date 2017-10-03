@@ -8,7 +8,8 @@ title: Security Posts
 
 	<div class="container post-list">
 		<div class="row">
-			{% for post in site.categories.security %}
+			{% if site.categories.Security %}
+				{% for post in site.categories.Security %}
 				<div class="col-lg-4 col-sm-6 col-xs-12">
 					<div class="card card-outline-danger mb-3 card-image postcard">
 						<a href="{{ post.url }}">
@@ -20,6 +21,9 @@ title: Security Posts
 						</div>
 					</div>
 				</div>
-			{% endfor %}
+				{% endfor %}
+			{% else %}
+				No Posts
+			{% endif %}
 		</div>
 	</div>
