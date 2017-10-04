@@ -1,5 +1,7 @@
 name: Matthew Adeline, Personal Blog
 markdown: kramdown
+kramdown:
+  input: GFM
 highlighter: rouge
 plugins:
   - jekyll-sitemap

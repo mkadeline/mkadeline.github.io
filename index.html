@@ -7,22 +7,23 @@ title: Home
 	</div>
 	<div class="container post-list">
 		<div class="row">
-			{% assign siteposts = site.posts | sort: 'date' %}
-			{% for post in siteposts %}
-				<div class="col-lg-4 col-sm-6 col-xs-12">
-					<div class="card card-outline-danger mb-3 card-image postcard">
-						<a href="{{ post.url }}">
-						<img class="card-img-top" src="/assets/images/{{ post.imageid }}" alt="post image">
-						</a>
-						<div class="card-block">
-							<span class="post-title-list"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span><br>
-							{% for category in post.categories %}
-								<span class="post-excerpt"><a href="/{{ category }}">{{ category }}</a></span>
-							{% endfor %}
-							<span class="post-excerpt">{{ post.excerpt }}</span>
+			{% for post in site.posts %}
+				{% if post.listHide != 'correct' %}
+					<div class="col-lg-4 col-sm-6 col-xs-12">
+						<div class="card card-outline-danger mb-3 card-image postcard">
+							<a href="{{ post.url }}">
+							<img class="card-img-top" src="/assets/images/{{ post.imageid }}" alt="post image">
+							</a>
+							<div class="card-block">
+								<span class="post-title-list"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span><br>
+								{% for category in post.categories %}
+									<span class="post-excerpt"><a href="/blog/{{ category }}">{{ category }}</a></span>
+								{% endfor %}
+								<span class="post-excerpt">{{ post.excerpt }}</span>
+							</div>
 						</div>
 					</div>
-				</div>
+				{% endif %}
 			{% endfor %}
 		</div>
 	</div>

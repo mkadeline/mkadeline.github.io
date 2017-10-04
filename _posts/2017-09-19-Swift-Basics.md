@@ -1,20 +1,20 @@
 ---
 layout: post
 title: "Swift Basics"
-tags: programmers-swift-course
+date: 2017-10-03
+tags: psc
 categories: iOS
-imageid: iOS.png
+imageid: iOS.jpg
+listHide: correct
 ---
 
 # Variables
 
 Swift variables and constant variables (simply called constants and differentiated from variables) are defined differently.
-``` swift
+```swift
 let neverChanges = 10
 var canChange = 0
 ```
-
-
 An interesting rabbit hole is the actual workings behind ```let```. It appears the keyword doesn't define a true constant, as I know it in Java or C#, more a reference that is only assigned to an object once. A swift 'constant' may be assigned at both compile time and run time. For example:
 ```let url = isDebug ? "http://localhost" : "http://www.myservice.com"```
 I'd like to explore this a little further and see how the variables defined with ```let``` are treated by the compiler. Regardless, the documentation calls it a constant and so will I.
@@ -75,11 +75,39 @@ Dictionary declaration is done with ```Dictionary<Key, Value>``` however the sho
     }
 * Switch statements follow the usual syntax however have an implicit ```break```. That is, once a condition is met, the relevant instructions are executed and the switch then breaks and the program continues. One can add a ```break``` to avoid executing all instructions within the condition statements. One can also can ```fallthrough to see C style switch behaviour. I.e:
     ```swift
-    
+    switch numberDescription {
+        case 2, 3, 5, 7:
+            print("A prime and ")
+            fallthrough
+        default:
+            print("an integer")
+    }
+    ```
+    Like C, the default condition, if it had one, would not be checked, it would simply execute.
 
-**Control Transfer Statements**
-
-
+## Control Transfer Statements
+**Labeled Statement**
+Swift allows labeled statements to jump to other areas of the code. Example, in Swift's documentation:
+``` swift
+gameLoop: while square != finalSquare {
+    diceRoll += 1
+    if diceRoll == 7 { diceRoll = 1 }
+    switch square + diceRoll {
+    case finalSquare:
+        // diceRoll will move us to the final square, so the game is over
+        break gameLoop
+    case let newSquare where newSquare > finalSquare:
+        // diceRoll will move us beyond the final square, so roll again
+        continue gameLoop
+    default:
+        // this is a valid move, so find out its effect
+        square += diceRoll
+        square += board[square]
+    }
+}
+print("Game over!")
+```
+The ```break gameLoop``` statement will break the entire ```while``` loop, instead of simply breaking the switch statement and the ```continue gameLoop``` will continue to the next iteration. The label is not strictly necessary on the continue direction as it performs the same without a label.
 
 
 
