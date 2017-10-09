@@ -3,7 +3,7 @@ layout: post
 title: "Swift Basics"
 date: 2017-10-03
 tags: psc
-categories: iOS
+categories: ios
 imageid: iOS.jpg
 listHide: correct
 ---

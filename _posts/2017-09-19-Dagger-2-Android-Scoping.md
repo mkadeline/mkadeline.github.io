@@ -2,7 +2,7 @@
 layout: post
 title: Dagger 2 Android - Scoping
 date: 2017-09-22
-category: Android
+category: android
 imageid: android.png
 ---
 

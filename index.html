@@ -9,15 +9,25 @@ title: Home
 		<div class="row">
 			{% for post in site.posts %}
 				{% if post.listHide != 'correct' %}
+				{% assign index = index | plus: 1 %}
+				{% if index > 9 %}
+					{% break %}
+				{% endif %}
 					<div class="col-lg-4 col-sm-6 col-xs-12">
 						<div class="card card-outline-danger mb-3 card-image postcard">
 							<a href="{{ post.url }}">
-							<img class="card-img-top" src="/assets/images/{{ post.imageid }}" alt="post image">
+							<img class="card-img-top" src="/assets/images/cardimages/{{ post.imageid }}" alt="post image">
 							</a>
 							<div class="card-block">
 								<span class="post-title-list"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span><br>
 								{% for category in post.categories %}
-									<span class="post-excerpt"><a href="/blog/{{ category }}">{{ category }}</a></span>
+									{% if category == 'ios' %}
+										<span class="post-excerpt"><a href="/blog/{{ category }}">iOS</a></span>		
+									{% elsif category == 'ai' %}		
+										<span class="post-excerpt"><a href="/blog/{{ category }}">AI</a></span>
+									{% else %}
+										<span class="post-excerpt"><a href="/blog/{{ category }}">{{ category | capitalize }}</a></span>
+									{% endif %}
 								{% endfor %}
 								<span class="post-excerpt">{{ post.excerpt }}</span>
 							</div>

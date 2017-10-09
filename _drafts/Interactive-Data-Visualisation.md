@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Data Visualisation and Angular"
-categories: programming data
+categories: web
 excerpt_separator: <!--more-->
 imageid: Datapi.png
 ---

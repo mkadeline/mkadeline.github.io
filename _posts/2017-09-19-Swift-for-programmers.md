@@ -3,7 +3,7 @@ layout: post
 title: "Swift for Programmers"
 date: 2017-10-02
 imageid: ios.jpg
-category: iOS
+category: ios
 excerpt_separator: <!--more-->
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Including Post Images in Jekyll"
-categories: Web
+categories: web
 excerpt_separator: <!--more-->
 imageid: codemonkey.jpg
 ---

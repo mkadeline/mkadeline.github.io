@@ -5,4 +5,17 @@ kramdown:
 highlighter: rouge
 plugins:
   - jekyll-sitemap
+  - jekyll-seo-tag
 permalink: /:categories/:title/
+# SEO
+title: Matthew Adeline Software
+description: A collection of posts about various areas of programming, web development, mobile, android and swift development and cyber security.
+site: mkadeline.github.io
+logo: /assets/images/Adlysslogo40.png
+social:
+  name: Matthew Adeline
+  links:
+    - https://www.linkedin.com/in/matthew-adeline/
+    - https://www.instagram.com/mkadeline
+    - https://www.github.com/mkadeline
+

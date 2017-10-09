@@ -7,8 +7,8 @@ title: Hardware Posts
 	</div>
 	<div class="container post-list">
 		<div class="row">
-			{% if site.categories.hardware %}
-				{% for post in site.categories.hardware %}
+			{% if site.categories.ios %}
+				{% for post in site.categories.ios %}
 					{% if post.listHide != 'correct' %}
 						<div class="col-lg-4 col-sm-6 col-xs-12">
 							<div class="card card-outline-danger mb-3 card-image postcard">
@@ -24,7 +24,7 @@ title: Hardware Posts
 					{% endif %}
 				{% endfor %}
 			{% else %}
-				No Posts
+				<h2>No Posts</h2>
 			{% endif %}
 		</div>
 	</div>

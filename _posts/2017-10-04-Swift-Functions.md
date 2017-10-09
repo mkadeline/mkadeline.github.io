@@ -3,7 +3,7 @@ layout: post
 title: "Swift Functions"
 date: 2017-10-04
 tags: psc
-categories: iOS
+categories: ios
 imageid: iOS.jpg
 listHide: correct
 ---

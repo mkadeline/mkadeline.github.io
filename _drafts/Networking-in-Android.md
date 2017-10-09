@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Basic Networking in Android"
-categories: programming android
+categories: android
 excerpt_separator: <!--more-->
 imageid: android.png
 ---

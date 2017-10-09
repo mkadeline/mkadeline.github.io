@@ -7,13 +7,13 @@ title: Android Posts
 	</div>
 	<div class="container post-list">
 		<div class="row">
-			{% if site.categories.Android %}
-				{% for post in site.categories.Android %}
+			{% if site.categories.android %}
+				{% for post in site.categories.android %}
 					{% if post.listHide != 'correct' %}
 						<div class="col-lg-4 col-sm-6 col-xs-12">
 							<div class="card card-outline-danger mb-3 card-image postcard">
 								<a href="{{ post.url }}">
-								<img class="card-img-top" src="/assets/images/{{ post.imageid }}" alt="post image">
+								<img class="card-img-top" src="/assets/images/cardimages/{{ post.imageid }}" alt="post image">
 								</a>
 								<div class="card-block">
 									<span class="post-title-list"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span>

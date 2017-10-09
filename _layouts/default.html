@@ -19,59 +19,23 @@
 	
 	<body id="override">
 		<div id="app" class="container">
-				<nav class="navbar navbar-toggleable-md navbar-light">
-					<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="row">
-					<ul class="navbar-nav" id="left-nav-ul">
-							<li class="nav-item" id="left-nav">
-								<a class="nav-link navbar-brand" href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
-							</li>		
-							<li class="nav-item" id="left-nav" >
-									<a class="nav-link navbar-brand" href="http://www.adlyss.com"><img src="/assets/images/Adlysslogo20.png"></a>
-							</li>
-							<li class="nav-item" id="left-nav">
-								<a class="nav-link navbar-brand" href="https://www.linkedin.com/in/matthew-adeline/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-							</li>
-							<li class="nav-item" id="left-nav">
-								<a class="nav-link navbar-brand" href="https://www.instagram.com/mkadeline"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-							</li>
-						</ul>
-					</div>
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav ml-auto">
-							<!-- <li class="nav-item">
-								<a class="nav-link" href="/blog/programming">Programming</a>
-							</li> -->
-							<!-- <li class="nav-item">
-								<a class="nav-link" href="/blog/hardware">Hardware</a>
-							</li>
-							<li class="nav-item">
-									<a class="nav-link" href="/blog/security">Security</a>
-								</li> -->
-								<li class="nav-item">
-									<a class="nav-link" href="/about"> &nbsp; &nbsp; &nbsp;<i class="fa fa-address-card" aria-hidden="true"></i>&nbsp; Matthew Adeline</a>
-								</li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-			<div class="dividing-line"></div>
-			<div class="layout-content">
-				<div class="container">
+					{% include navbar.html %}
+		</div>
+		<div class="dividing-line"></div>
+		<div class="layout-content">
+			<div class="container">
 				
 				{{ content }}
 				
-				</div>
 			</div>
+		</div>
 
-			<div class="footer">
-				<div class="dividing-line"></div>
-			</div>
-			
-			<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-		</body>
+		<div class="footer">
+			<div class="dividing-line"></div>
+		</div>
+		
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	</body>
 </html>
