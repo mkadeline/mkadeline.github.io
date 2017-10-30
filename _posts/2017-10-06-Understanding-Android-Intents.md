@@ -18,7 +18,7 @@ startActivity(intent); // Call startActivity, using the created intent.
 ```
 The putExtra can be overloaded to include many primitives and we can pass serialised objects too.
 
-In the above example, the ```Intent``` object is constructed, using one of its six constructors, as an explicit Intent conatining the current Activity as a ```Context```.
+In the above example, the ```Intent``` object is constructed, using one of its six constructors, as an explicit Intent containing the current Activity as a ```Context```.
 These constructors include:
 ``` java
 Intent() // Creates and empty intent
@@ -34,13 +34,13 @@ The Intent Structure is structured to first be considered an implicit Intent wit
 There are then many secondary attributes, which override or cause Android to ignore some or all evaluation of the primary attributes. For example, 
 * The **category** attribute, which will specify certain restrictions on which activity, component or application can handle the intent. For example, ```CATEGORY_APP_MUSIC``` specifies the Intent would like the component to be able to handle music files. From the sender, these categories are used to describe a possible target. From the receiver's point of view, the categories tell Android what types of Intents the component can handle.
 * The **type** attribute will specify the MIME type, which is usually inferred. Setting this will override Android evaluation and force the type.
-* The **component** attribute, which allows us to specify the exact .class to target. This is the largest shortcircuit available when declaring an Intent. Usually, the target class is inferred from the action/data pair and the categories, and potentially the MIME type if necessary, and the selected by Android. Setting this atttribute will avoid any suitable component evaluation and send the user directly to the component. That means, once this is set, all other attributes become optional.
+* The **component** attribute, which allows us to specify the exact .class to target. This is the largest short-circuit available when declaring an Intent. Usually, the target class is inferred from the action/data pair and the categories, and potentially the MIME type if necessary, and the selected by Android. Setting this attribute will avoid any suitable component evaluation and send the user directly to the component. That means, once this is set, all other attributes become optional.
 * The **extras** attribute is a ```Bundle``` of extra information. The Bundle is essentially a Java ```Map```, mapping values to ```String``` keys. The values must however be serializable and parcelable, and so the ```Map``` API is too flexible, allowing stream etc. The values can be added using ```putExtra(String key, ? value)```, or a Bundle added directly, ```putExtra(Bundle bundle)```.
 
 ### Intent Resolution
 Explicit Intents are fairly clear and often used to simply load internal activities as the user moves about the app. Implicit Intents must go through a process of Intent Resolution, and it is the developer's responsibility to provide enough information about the intent to ensure successful resolution.
 This is done by matching the intent with all of the ```<intent-filter>``` descriptions the system holds.
-The filter uses action, type and category to make its decision and any activities that would like to handle these Intents must list the action and type as one it handles, and must list *all* the cateogries. This means the filter must list ```CATEGORY_DEFAULT``` as one it handles.
+The filter uses action, type and category to make its decision and any activities that would like to handle these Intents must list the action and type as one it handles, and must list *all* the categories. This means the filter must list ```CATEGORY_DEFAULT``` as one it handles.
 The docs go on to say, 
 > Android automatically applies the the CATEGORY_DEFAULT category to all implicit intents passed to startActivity() and startActivityForResult(). So if you want your activity to receive implicit intents, it must include a category for "android.intent.category.DEFAULT" in its intent filters.
 

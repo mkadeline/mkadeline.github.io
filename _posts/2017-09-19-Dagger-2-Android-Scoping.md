@@ -16,8 +16,8 @@ Starting from the bottom, we define a new Module to provide the dependencies:
 
 The Athlete object will require a name, which must be provided to the module so it may provide it to the Athlete. This is how we inject primitive etc. dependencies into our injected Objects.
 
-Now we need to set up the component stucture to provide the dependencies.
-Firstly, we introduce an AppComponent, to allow for easier inheritence if we were to add additional features:
+Now we need to set up the component structure to provide the dependencies.
+Firstly, we introduce an AppComponent, to allow for easier inheritance if we were to add additional features:
 
 <script src="https://gist.github.com/mkadeline/64c711e67f08849be6927c0e0886dfa7.js"></script>
 
@@ -27,7 +27,7 @@ Now our new TimerComponent:
 
 <script src="https://gist.github.com/mkadeline/6dc4a7730f5c45be4e66fdf1bd0e3146.js"></script>
 
-Our MainActivity will not need access to the Athlete or Records objects and so the TimerComponent can inject the Timer directly. However, other activities require the WorkoutModule and so that will need to be injerited further down the line, in our WorkoutComponent, which now also has access to the Timer:
+Our MainActivity will not need access to the Athlete or Records objects and so the TimerComponent can inject the Timer directly. However, other activities require the WorkoutModule and so that will need to be inherited further down the line, in our WorkoutComponent, which now also has access to the Timer:
 
 <script src="https://gist.github.com/mkadeline/4e115d533d34356c91df80026f5521d2.js"></script>
 
@@ -36,7 +36,7 @@ The WorkoutComponent can inject dependencies into ActiveSessionActivity and will
 <script src="https://gist.github.com/mkadeline/c67c6ce80b4c5cb52c200e409fa390bf.js"></script>
 
 By defining our custom @Workout scope we ensure all Athletes, PushupRecords and SitupRecords are singletons while that scope is live, which means we'll get a new Athlete, and Record objects when we instantiate a new WorkoutComponent.
-So we now are able to completely control the creation and destruction of our objects through Dagger, without boilerplate and importantly, without having to consider which Athlete we'll be working on. We do however need to control the instantiation of WorkoutComponent, which will have a clear entry and exit point in the lifecycle of the app.
+So we now are able to completely control the creation and destruction of our objects through Dagger, without boilerplate and importantly, without having to consider which Athlete we'll be working on. We do however need to control the instantiation of WorkoutComponent, which will have a clear entry and exit point in the life-cycle of the app.
 
 In our AthleteActivity, we get the name of the Athlete and create the WorkoutComponent:
 

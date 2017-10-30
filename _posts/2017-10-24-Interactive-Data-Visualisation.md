@@ -58,7 +58,7 @@ The json data used:
 - Temperature Data
 - Housing Data
 
-D3 is a remarkably flexible library, particularly when dealing with data and conversion or parsing it into the correct form. This flexiblity was however limited by Typescript, with the benefit of that being its typesafe nature.
+D3 is a remarkably flexible library, particularly when dealing with data and conversion or parsing it into the correct form. This flexibility was however limited by Typescript, with the benefit of that being its typesafe nature.
 
 There were some slight alterations to usual D3 code.
 
@@ -92,7 +92,7 @@ import { FinGraphService } from './../services/fin-graph-service/fin-graph.servi
 })
 export class FinDataComponent implements OnInit {
 
-  investment: string = 'savings'; // The first grapg to produce
+  investment: string = 'savings'; // The first graph to produce
 
   setUpGraph(): void { this.finGraphService.setUpLine(); }; // called inside produceBlueGraph
   updateLines():void { this.finGraphService.updateLine(this.investment); }
@@ -177,4 +177,4 @@ As the data was all of the same size, there was no need for enter() or exit(). H
 
 The entire process is only a slight extension on the original data visualisation and provides and excellent way for users to compare data across inputs, in this case across investments or cities, and bring the data to life.
 
-A demonstration will be available on blog.adlyss.com soon.
+A demonstration is available at our [Angular demo site](angular.adlyss.com)

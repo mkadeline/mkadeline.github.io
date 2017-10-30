@@ -23,7 +23,7 @@ var direction  = Compass.west
 ```
 ### Associated Values
 
-Given Swift enum's status as first class types, we can expand the usual enum configurationt to include types associated with a case.
+Given Swift enum's status as first class types, we can expand the usual enum configuration to include types associated with a case.
 An example is a barcode, which is four specific numbers in order. Consider also a QR scan code, which can contain information for a string of up to 2953 characters.
 ```swift
 enum Barcode {

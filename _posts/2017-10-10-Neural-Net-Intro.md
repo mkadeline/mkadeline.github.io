@@ -6,7 +6,7 @@ excerpt_separator: <!--more-->
 imageid: datanet.jpg
 ---
 
-Neural Networks are the leading strategy in many Articial Intelligence applicaitons, and at their core, they are surprisingly simple. Today we'll build a single layer neural network <!--more-->in python, then extend that out to several layers and understand what is happening at each stage.
+Neural Networks are the leading strategy in many Artificial Intelligence applications, and at their core, they are surprisingly simple. Today we'll build a single layer neural network <!--more-->in python, then extend that out to several layers and understand what is happening at each stage.
 
 ### First, a summary of Neural Networks.
 
@@ -30,9 +30,9 @@ Think of this in a more abstract way with other possible inputs. If you're consi
 
 In the case of the stove, the input from each of these is vastly different. A stove is unlikely to be poisonous or sharp, so the weights applied to those inputs would be close to zero.
 It may be dirty, covered in grease or otherwise unpleasant to touch, and it may be very hot, so the weights on those could be zero or much higher.
-Finally, you may know it is dirty or too hot to touch, but do you want to touch it anyway? This is an important point to understand. The weights applied to the five inputs above, are not necessarily about their own properties. I.e. a hot stove may have higher weight input than a cold one, but what's more important is **how its temperature contirbutes to your decision making process.** That is what determines the weight of the input - **how does that input contribute to your decision making process?** 
-The *total weight* of the inputs should be 100. That means if the stove is hot as hell, covered in grease and rusty and sharp, and you touch it anyway because you want to, the weights of inputs 1-4 are extremely low, while the weight applied to input 5 is very high. 
-If you really want to touch it but restrain yourself becuase of 1-4, the weight applied to 5 is low, or at least lower than the combined weights applied to 1-4.
-This will become clearer in practice, although it's important to keep in mind. In researching some successful neural networks, researchers have found some inputs hold almost all of the weight - i.e. they make almost all of the decision. This is not usually a sustainable practice, especially in complex decision making processes that should take input from many sources.
+Finally, you may know it is dirty or too hot to touch, but do you want to touch it anyway? This is an important point to understand. The weights applied to the five inputs above, are not necessarily about their own properties. I.e. a hot stove may have higher weight input than a cold one, but what's more important is **how its temperature contributes to your decision making process.** That is what determines the weight of the input - **how does that input contribute to your decision making process?** 
+The *total weight* of the inputs should be 100. That means if the stove is hot as hell, covered in grease, rusty and sharp, and you touch it anyway because you want to, the weights of inputs 1-4 are extremely low, if not close to zero, while the weight applied to input 5, do I want to, is very high. 
+If you really want to touch it but restrain yourself because of reasons 1-4, the weight applied to 5 is low, or at least lower than the combined weights applied to 1-4.
+This will become clearer in practice, although it's important to keep in mind. In researching some otherwise successful neural networks, researchers have found some inputs hold almost all of the weight - i.e. they contribute to almost all of the decision making. This is not usually a sustainable practice, especially in complex decision making processes that should take input from many sources.
 
 Coming soon - Implementing a simple neural network in Python.

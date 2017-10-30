@@ -7,7 +7,8 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 permalink: /:categories/:title/
-# SEO
+
+###################################### SEO
 title: Matthew Adeline Software
 description: A collection of posts about various areas of programming, web development, mobile, android and swift development and cyber security.
 site: mkadeline.github.io

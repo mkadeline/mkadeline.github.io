@@ -33,7 +33,7 @@ func doubleNumber(number: Int) -> Int {
     return localNumber
 }
 ```
-or use an inout variable, descirbed below.
+or use an inout variable, described below.
 
 In the official swift docs, and presumably elsewhere, you'll see functions described with the parameter names included. For example, the above greetMe function is described as the ```greetMe(person:)``` function. The parameter type is excluded. If a function had two parameters for example, it is the ```twoParameterFunction(parameterOne:parameterTwo:)```. Again, the parameter types are excluded.
 
@@ -72,14 +72,14 @@ func greet(person: String, from hometown: String) {
 // Then the call can look like
 greet(person: "Matthew", from: "Sydney")
 ```
-The labels aren't strictly required, as the compiler will simply make the parameter name and label the same if the label is ommitted. They can also be ommitted using an underscore (_) in front of the parameter name:
+The labels aren't strictly required, as the compiler will simply make the parameter name and label the same if the label is omitted. They can also be omitted using an underscore (_) in front of the parameter name:
 ```swift
 func greet(_ person: String, from hometown: String) {
     // print greeting
 }
 greet("Matthew", from: "Sydney")
 ```
-Swift 3 requires all parameters either have a label or an explicit ommission.
+Swift 3 requires all parameters either have a label or an explicit omission.
 
 **Variadic Parameters**  
 A variadic parameter will accept zero or more values, which are then passed in as an array and can be iterated over and treated as an array. It is declared with three periods (...) after the type, i.e:
@@ -124,7 +124,7 @@ func printMathFunctions(_ mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
 }
 printMathFunctions(addTwoInts, 2, 3)
 ```
-It appears from this example taken from the Swift docs, that the passed function does not need to be called with any labels, i.e. the ommission is implied. I can't find direct confirmation of this but it seems to be the case above.
+It appears from this example taken from the Swift docs, that the passed function does not need to be called with any labels, i.e. the omission is implied. I can't find direct confirmation of this but it seems to be the case above.
 
 **Nested Functions**  
 Nested functions are those declared within another function. 
