@@ -4,7 +4,7 @@ title: "Swift Functions"
 date: 2017-10-04
 tags: psc
 categories: ios
-imageid: iOS.jpg
+image: /assets/images/cardimages/ios.jpg
 listHide: correct
 ---
 # Overview

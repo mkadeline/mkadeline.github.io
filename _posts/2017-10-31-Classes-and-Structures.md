@@ -4,7 +4,7 @@ title: "Swift Classes and Structures"
 date: 2017-10-31
 tags: psc
 categories: ios
-imageid: ios.jpg
+image: /assets/images/cardimages/ios.jpg
 listHide: correct
 ---
 

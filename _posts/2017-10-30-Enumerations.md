@@ -4,7 +4,7 @@ title: "Swift Enumerations"
 date: 2017-10-04
 tags: psc
 categories: ios
-imageid: ios.jpg
+image: /assets/images/cardimages/ios.jpg
 listHide: correct
 ---
 

@@ -4,7 +4,7 @@ title: "Swift Basics"
 date: 2017-10-03
 tags: psc
 categories: ios
-imageid: iOS.jpg
+image: /assets/images/cardimages/ios.jpg
 listHide: correct
 ---
 
