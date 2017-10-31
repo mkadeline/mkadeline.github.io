@@ -3,7 +3,7 @@ layout: post
 title: "Understanding Android Intents"
 categories: android
 excerpt_separator: <!--more-->
-imageid: android.png
+image: /assets/images/cardimages/android.png
 ---
 
 Intents are the key mechanism for starting, requesting and passing data between mechanisms, but I wanted to understand what was happening behind the Intents, what <!--more-->API's were in use and why Android chooses to do it this way.

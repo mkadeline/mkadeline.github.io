@@ -4,7 +4,8 @@ title: "Dagger 2 Android Introduction"
 date: 2017-09-20
 category: android
 excerpt_separator: <!--more-->
-imageid: android.png
+image: /assets/images/cardimages/android.png
+type: BlogPosting
 ---
 
 In exploring object creation, at some point in modern programming, we need to turn to dependency injection. The separation of concerns principle and ensuring our objects are modular <!--more-->means at times we can have a huge number of objects, each doing one thing. While that makes testing, maintenance and upgrading much easier, it can make following your object's dependencies more difficult.

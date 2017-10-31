@@ -3,7 +3,7 @@ layout: post
 title: "Introduction to Neural Networks"
 categories: ai
 excerpt_separator: <!--more-->
-imageid: datanet.jpg
+image: /assets/images/cardimages/datanet.jpg
 ---
 
 Neural Networks are the leading strategy in many Artificial Intelligence applications, and at their core, they are surprisingly simple. Today we'll build a single layer neural network <!--more-->in python, then extend that out to several layers and understand what is happening at each stage.

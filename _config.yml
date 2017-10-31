@@ -11,7 +11,8 @@ permalink: /:categories/:title/
 ###################################### SEO
 title: Matthew Adeline Software
 description: A collection of posts about various areas of programming, web development, mobile, android and swift development and cyber security.
-site: mkadeline.github.io
+url: mkadeline.github.io
+author: Matthew Adeline
 logo: /assets/images/Adlysslogo40.png
 social:
   name: Matthew Adeline

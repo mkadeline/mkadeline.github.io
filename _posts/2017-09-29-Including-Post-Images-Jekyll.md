@@ -3,7 +3,7 @@ layout: post
 title: "Including Post Images in Jekyll"
 categories: web
 excerpt_separator: <!--more-->
-imageid: codemonkey.jpg
+image: /assets/images/cardimages/codemonkey.jpg
 ---
 
 In setting up this site with Github pages and Jekyll, I was aiming for simplicity first and foremost. I really just wanted somewhere to work through new topics <!--more--> and technologies and provide a platform to get some advice. However, I still wanted it to look nice and in particular, add some colour through images. 

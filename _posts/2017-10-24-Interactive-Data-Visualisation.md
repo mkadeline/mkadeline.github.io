@@ -3,7 +3,7 @@ layout: post
 title: "Data Visualisation and Angular"
 categories: web
 excerpt_separator: <!--more-->
-imageid: datapi.jpg
+image: /assets/images/cardimages/datapi.jpg
 ---
 
 D3.js is by far my favourite charting library for web development and wherever possible, I'll opt to send data to the front end and visualise it through D3 rather <!--more--> than render graphs in the back end. This can howsever add some layers of complexity. While the API is fairly simple, it is a powerful library and requires some getting used to and the methods we choose to pass the data can also add complexity.
