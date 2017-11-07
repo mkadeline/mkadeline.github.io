@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift Enumerations"
-date: 2017-10-04
+date: 2017-10-31
 tags: psc
 categories: ios
 image: /assets/images/cardimages/ios.jpg

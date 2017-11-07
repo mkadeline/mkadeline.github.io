@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Swift Properties"
-date: 2017-10-03
+date: 2017-11-03
 tags: psc
 categories: ios
 image: /assets/images/cardimages/ios.jpg
