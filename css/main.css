@@ -41,6 +41,10 @@ body {
   font-size:18px;
   flex-direction: row;
 }
+
+.navbar .name-link {
+  margin: 0 0 0 10px;
+}
 #override .navbar a, navbar a:active {
   color:#6B0000;
   background-color: transparent;
