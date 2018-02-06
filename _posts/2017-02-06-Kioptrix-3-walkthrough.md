@@ -11,7 +11,7 @@ type: BlogPosting
 
 To begin we start with a scan of the local network to obtain the VM IP using nmap 10.0.0.* -sP, piped to grep to cull the output.
 
-![localscan](/assets/images/postimages/security/screenshots/local-ip-scan.png)
+![localscan](/assets/images/postimages/security/screenshots/local-ip-scan.png)<!--more-->
 
 The -sP flag indicates a ping search of IPs 10.0.0.0-255.
 

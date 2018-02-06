@@ -11,7 +11,7 @@ type: BlogPosting
 
 Once again, we begin with a scan of the local network using ```nmap -sP -sV 10.0.0.*``` to find the VM IP is ```10.0.0.15```.
 
-Then, a TCP port scan:
+Then, a TCP port scan:<!--more-->
 
 ![nmapscan](/assets/images/postimages/security/screenshots/nmap-port-scan-kio-4.png)
 
