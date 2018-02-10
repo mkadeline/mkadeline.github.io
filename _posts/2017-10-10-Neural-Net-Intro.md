@@ -1,9 +1,12 @@
 ---
 layout: post
 title: "Introduction to Neural Networks"
+description: Introduction to Neural Networks and the building blocks of neural networks
+type: 2017-10-10
 categories: ai
 excerpt_separator: <!--more-->
 image: /assets/images/cardimages/datanet.jpg
+type: BlogPosting
 ---
 
 Neural Networks are the leading strategy in many Artificial Intelligence applications, and at their core, they are surprisingly simple. Today we'll build a single layer neural network <!--more-->in python, then extend that out to several layers and understand what is happening at each stage.
@@ -16,7 +19,7 @@ The basic building block of the neural network is the perceptron, first develope
 
 The idea is that if the weighted sum of the inputs is high enough, i.e. if the inputs are strong enough, then the inputs will pass the unit step function, so to speak. A very basic unit-step function looks like this:
 
-![Unit Step Funcion](/assets/images/postimages/unit-step.png)
+![Unit Step Function](/assets/images/postimages/unit-step.png)
 
 Notice the function outputs only two values, 0 or 1. If the inputs are not strong enough, no matter how close they get, it will not pass the unit-step function. This early model was somewhat inspired by how researchers thought our own neurons work. 
 For example, if you touch something that may hurt you, such as a stove (the input), the temperature of that stove (the *weight* of the input) will need to be high enough to make you pull your hand away. If the input is not high enough, the stove may just be warm and you can keep your hand there all day. However, at some point, the weighted input is high enough, i.e. it gets hot enough, that you have no choice but to pull your hand away. That is the basic working of the perceptron and the unit-step function.

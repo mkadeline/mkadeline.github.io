@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Including Post Images in Jekyll"
+description: Including images in Jekyll post cards
 categories: web
 excerpt_separator: <!--more-->
 image: /assets/images/cardimages/codemonkey.jpg

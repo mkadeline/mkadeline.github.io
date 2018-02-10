@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Swift for Programmers"
+description: A walkthrough of the key language features of Swift, designed for programmers already familiar with Type Safe, compiled languages.
 date: 2017-10-02
 image: /assets/images/cardimages/ios.jpg
 category: ios

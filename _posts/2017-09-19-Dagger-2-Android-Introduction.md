@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Dagger 2 Android Introduction"
+description: A walkthrough of a simple case of dependency injection with Dagger 2 and Android
 date: 2017-09-20
 category: android
 excerpt_separator: <!--more-->
