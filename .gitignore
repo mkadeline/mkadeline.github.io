@@ -1,1 +1,4 @@
 _site/
+src/assets/bundle.js
+assets/bundle.js
+node_modules
