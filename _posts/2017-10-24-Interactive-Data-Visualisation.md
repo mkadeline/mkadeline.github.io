@@ -11,7 +11,7 @@ type: BlogPosting
 
 A demonstration is available at [angular.adlyss.com](http://angular.adlyss.com)
 
-D3.js is by far my favourite charting library for web development and wherever possible, I'll opt to send data to the front end and visualise it through D3 rather <!--more--> than render graphs in the back end. This can howsever add some layers of complexity. While the API is fairly simple, it is a powerful library and requires some getting used to and the methods we choose to pass the data can also add complexity.
+D3.js is by far my favourite charting library for web development and wherever possible,<!--more--> I'll opt to send data to the front end and visualise it through D3 rather than render graphs in the back end. This can howsever add some layers of complexity. While the API is fairly simple, it is a powerful library and requires some getting used to and the methods we choose to pass the data can also add complexity.
 
 In this post, I explored the use of Angular and D3.js to create some interactive data visualisations. 
 

@@ -4,9 +4,7 @@ import Hello from '../components/hello.js';
 
 class App extends Component {
     render() {
-        return (
-            <Hello />
-        )
+        return null
     }
 }
 
