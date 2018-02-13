@@ -9,6 +9,8 @@ image: /assets/images/cardimages/datapi.jpg
 type: BlogPosting
 ---
 
+A demonstration is available at [angular.adlyss.com](http://angular.adlyss.com)
+
 D3.js is by far my favourite charting library for web development and wherever possible, I'll opt to send data to the front end and visualise it through D3 rather <!--more--> than render graphs in the back end. This can howsever add some layers of complexity. While the API is fairly simple, it is a powerful library and requires some getting used to and the methods we choose to pass the data can also add complexity.
 
 In this post, I explored the use of Angular and D3.js to create some interactive data visualisations. 
@@ -179,5 +181,3 @@ updateLine(loc:string): void {
 As the data was all of the same size, there was no need for enter() or exit(). However if needed they can be added to the if block.
 
 The entire process is only a slight extension on the original data visualisation and provides and excellent way for users to compare data across inputs, in this case across investments or cities, and bring the data to life.
-
-A demonstration is available at our [Angular demo site](angular.adlyss.com)
