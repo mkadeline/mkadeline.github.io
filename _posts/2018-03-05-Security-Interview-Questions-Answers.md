@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sample Cyber Security Interview Questions and Answers"
-description: "Answers may be incorrect.
+description: "Answers may be incorrect"
 date: 2018-03-05
 category: security
 excerpt_separator: <!--more-->
