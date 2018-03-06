@@ -251,9 +251,59 @@ The three-way TCP handshake is a SYN, let's connect, a SYN-ACK, yes ok let's con
 - Where are windows user passwords kept
 The password hashes are stored in the Windows SAM file. This file is located on your system at C:\Windows\System32\config but is not accessible while the operating system is booted up. These values are also stored in the registry at HKEY_LOCAL_MACHINE\SAM, but again this area of the registry is also not accessible while the operating system is booted.
 
+- What is ARP?
+ARP determines the mapping of an IPv4 address to the underlying MAC address. The implementation of the MAC protocol decodes the MAC PDU and delivers the User-Data to the IP-layer. To transfer packets between nodes via an IP address, the layer 3 must use layer 2, likely ethernet to perform the transfer. Ethernet requires a MAC address and so this must be handled by the ARP. Theoretically, Layer 2 and Layer 3 could be combined into a single layer, avoiding the need for ARP, however any changes to Ethernet would then require changes in IP and vice versa.
+
 - What is ARP Cache poisoning
 Address Resolution Protocol is used to link layer 3 and layer 2, essentially resolving an IP address to the relevant MAC and therefore device. When data is sent to an IP, an ARP request is sent throughout the network by the networks router to find which IP owns which MAC address. These addresses are stored in a cache or local storage. ARP Cache Poisoning takes advantage of the fact that ARP is a stateless protocol without authentication. Network hosts will automatically cache any ARP replies they receive, regardless of whether network hosts requested them. Even ARP entries that have not yet expired will be overwritten when a new ARP reply packet is received. Thus the ARP is 'poisoned' with the attackers MAC.
 Common mitigations include static ARP entries although this is very manual. Another method involves intelligent monitoring and notifications of a changed address.
+
+- What is a WAF and how does it differ from a normal firewall?
+Web application firewall or WAF is an application firewall for HTTP conversations, applying a set of rules to these conversations. A WAF may be calibrated to protect against common attacks such as XSS or SQLi. While a normal filewall sits between servers, blocking and inspecting packets based on their source, destination, frequency etc. a WAF will inspect the HTTP packets and attempt to block the common attacks above. The WAF may do that by inspecting packets for illegal characters or requests.
+
+- What is SSRF?
+In a typical network, there may be one public facing application, e.g. 10.0.0.1 or server that communicates to protected internal servers, e.g 10.0.0.2. It may be set up that only communications from the authorised server 10.0.0.1 are able to request resources or make changes to 10.0.0.2. However, incorrect configurations in 10.0.0.1 may mean it is possible to attack 10.0.0.2 indirectly.
+If the public facing server consumes and forwards information or input without sanitsation or performs requests based on user input without sanitsation or verification, it may be liable to a SSRF attack.
+An example is an HTTP request, sent to 10.0.0.1 that is then forwarded to 10.0.0.2 without or with limited checking. The attacker may be able to request sensitive information or access protected services via this pass through request.
+
+### Potential Networking Questions ###
+- What is a router? What is routing?
+A router allows internetwork communication between directly connected networks and communication between indirectly connected networks through the process of routing.  
+
+- What is NAT?
+NAT is Network Address Translation is a method of remapping one IP address space into another by modifying network address information in IP header of packets while they are in transit across a traffic routing device. **IP Masquerading** is a technique that hides an entire IP address space, usually consisting of private IP addresses, behind a single IP address in another, usually public address space. The term NAT has become virtually synonymous with IP masquerading.
+Essentially the practice involves having one public facing IP for a network, the router, and all incoming and outgoing requests and responses and then mapped to that internal address by the router.
+E.g Request => Internal Host:<To: 132.452.564.324, From: 10.0.0.1> 
+                    --> Router:<To: 132.452.564.324, From: Public IP> 
+                            --> Web Server<132.452.564.324>
+
+Response    => Web Server: <To: Public IP, From: 132.452.564.324>
+                    --> Router:<To: 10.0.0.1, From: 132.452.564.324>
+                            --> Internal Host<10.0.0.1>
+This means incoming requests or responses are dropped by the NAT or Firewall unless ports are forward. **(To be fact checked)**
+
+- Describe each layor of the condensed OSI Model
+    - Layer 1: The physical layer allows the transmission of raw bit streams on phyiscal mediums. I.e. electronic signals over sensors, switches and wires. Important concepts here include encoding, timing, pin layout, voltages etc. A physical transmission medium can include electrical cable, fibreoptic and radio signal.
+    - Layer 2: The Link layer allows for higher level transmission of data *frames* between two nodes connected by a physical layer. The nodes are directly connected. It detects and potentially corrects error occurring in the physical layer and controls the flow between the nodes. It operates using frames over ethernet, Wifi or Zigbee.
+    - Layer 3: The Network layer allows for the transferring of **packets** between 'different networks'. This is usually done through the Internet Protocol which specifies the addressing of hosts. 
+    - Layer 4: The transport layer provides the functional and procedural means of transferring variable-length data sequences from a source to a destination host, while maintaining the quality of service functions. Although not developed under the OSI Reference Model and not strictly conforming to the OSI definition of the transport layer, the Transmission Control Protocol (TCP) and the User Datagram Protocol (UDP) of the Internet Protocol Suite are commonly categorized as layer-4 protocols within OSI.
+    - Layer 5: The application layer is the OSI layer closest to the end user, which means both the OSI application layer and the user interact directly with the software application.
+
+- What is a DHCP server?
+A DHCP dynamically assigns IP addresses to a host joining the network. It is used to efficiently allocate IP addresses to hosts that need it. A router or a residential gateway can be enabled to act as a DHCP server. Most residential network routers receive a globally unique IP address within the ISP network. Within a local network, a DHCP server assigns a local IP address to each device connected to the network.
+
+- Private IP Space
+24-bit block	10.0.0.0 – 10.255.255.255	16,777,216
+20-bit block	172.16.0.0 – 172.31.255.255	1,048,576
+16-bit block	192.168.0.0 – 192.168.255.255	65,536
+
+- Subnetting
+Subnetting is the act of splitting a network into two or more subnets to make the intra-network communication more secure or efficient. 
+A walkthrough of subnetting:
+Suppose we had a network with an IP allocation of 10.x.x.x. This gives us a default subnet mask of 255.0.0.0 which tells us that the first three octets are the network number, and the last, the host number. This allows up to 16,777,216 hosts.
+The subnet mask is 255.0.0.0 because this is the value used in a routers AND operation to determine whether the traffic is intra or inter network. This is also represented as a /8 subnet, as only 8 bits are reserved for the network address.
+Breaking this up into a class B network means we take a further 8 bits into the subnet mask, to 255.255.0.0 or /16. The logic follows for a /24 and /32 mask network. The increases in masking don't need to be in jumps of 8 either. A /17 is valid and represents a mask of 255.255.128.0. 
+
 
 
 What are the primary design flaws in HTTP, and how would you improve it?
