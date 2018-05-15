@@ -1,5 +1,6 @@
-- Realm database and inheritance options
 - Synchronising mobile and remote database without Realm/Firebase/CouchDB etc.
+- Apache Kafka + Elastic for SIEM
+- Introduction to Security Architecture
 
 ---
 layout: post
